@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form Submission Successful</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #61bf1a;
+    }
+    h2 {
+      color: #61bf1a;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #61bf1a;
+      color: #ffffff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Form Submission Successful</h2>
+    <a href="https://leadzreup.com/static/img/banner.jpg"><img src="https://leadzreup.com/static/img/banner.png" width="100%" height="100%"></a>
+    <p>Dear {{name}},</p>
+    <p>Your message has been received! Thank you for choosing Leadz Reup.</p>
+    <p>We will review your request and get back to you shortly.</p>
+    <p>If you have any questions or need immediate assistance, please contact us at {{lynk_local_phone_number}}.</p>
+
+    <p>Individual/Company: {{name}}</p>
+    <p>Email: {{email}}</p>
+    <p>Phone Number: {{phone_number}}</p>
+    <p>Message: {{message}}</p>
+    <p>Services: {% for service in services %}{{service}}, {% endfor %}</p>
+    <p>Best Regards,</p>
+    <p>The Lynk Local Team</p>
+    <a href="https://leadzreup.com/" class="cta-button">Visit Website</a>
+  </div>
+</body>
+</html>
