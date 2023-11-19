@@ -2689,12 +2689,13 @@ textarea.form-control-lg {
 }
 
 .form-floating {
-    position: relative
+    position: relative;
 }
 
 .form-floating>.form-control,
 .form-floating>.form-select {
     height: calc(3.5rem + 2px);
+    border-radius: 20px;
     padding: 1rem .75rem
 }
 
@@ -3132,14 +3133,14 @@ fieldset:disabled .btn {
 }
 
 .btn-secondary:hover {
-    color: #000;
+    color: var(--bs-primary);
     background-color: #ff643a;
     border-color: #ff5b2e
 }
 
 .btn-check:focus+.btn-secondary,
 .btn-secondary:focus {
-    color: #000;
+    color: var(--bs-primary);
     background-color: #ff643a;
     border-color: #ff5b2e;
     box-shadow: 0 0 0 .25rem rgba(217, 62, 20, 0.5)
@@ -4489,7 +4490,7 @@ fieldset:disabled .btn {
     line-height: 1;
     background-color: transparent;
     border: 1px solid transparent;
-    border-radius: 0px;
+    border-radius: 20px;
     transition: box-shadow 0.15s ease-in-out
 }
 
