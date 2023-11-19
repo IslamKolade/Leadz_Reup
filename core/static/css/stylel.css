@@ -266,6 +266,7 @@ h6,
 .facility-item .facility-icon {
     position: relative;
     margin: 0 auto;
+    border: var(--secondary) solid 4px;
     width: 80px;
     height: 80px;
     border-radius: 20px;
@@ -428,7 +429,7 @@ h6,
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
-    background: var(--primary);
+    background: var(--secondary);
     border-radius: 45px;
     font-size: 20px;
     transition: .5s;
