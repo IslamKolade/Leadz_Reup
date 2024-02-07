@@ -365,6 +365,9 @@
                                                 <label class="form-check-label" for="B2BSalesCheckbox">B2B Sales</label>
                                             </div>
                                         </div>
+
+                                        <!-- Google reCAPTCHA widget -->
+                                        <div class="g-recaptcha" data-sitekey="6Ld012MpAAAAAOA3ysg3Ue3faEtHtRsD1Sy_cJ8J"></div>
                                                                               
                                         <div class="col-12">
                                             <button class="btn btn-secondary rounded-pill w-100 py-3" type="submit">Submit</button>
@@ -535,32 +538,42 @@
 
 
     <!-- JavaScript for Form Submission -->
-  <script>
-    $(document).ready(function () {
-        $("#contactForm").submit(function (e) {
-            e.preventDefault();
-            $(".preloader-overlay").show();
+    <script>
+        $(document).ready(function () {
+            $("#contactForm").submit(function (e) {
+                e.preventDefault();
+                $(".preloader-overlay").show();
 
-            var formData = $(this).serializeArray();
-            formData.push({ name: 'csrfmiddlewaretoken', value: $('input[name=csrfmiddlewaretoken]').val() });
+                var response = grecaptcha.getResponse();
 
-            $.ajax({
-                type: "POST",
-                url: "{% url 'contact_form_submission' %}",
-                data: formData,
-                success: function (response) {
-                  $(".preloader-overlay").hide();
-                    $('#successModal').modal('show');
-                    $("#contactForm")[0].reset();
-                },
-                error: function (error) {
-                  $(".preloader-overlay").hide();
-                    $('#errorModal').modal('show');
+                if (!response) {
+                    alert("Please complete the reCAPTCHA challenge.");
+                    $(".preloader-overlay").hide();
+                    return;
                 }
+
+                var formData = $(this).serializeArray();
+                formData.push({ name: 'csrfmiddlewaretoken', value: $('input[name=csrfmiddlewaretoken]').val() });
+
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'contact_form_submission' %}",
+                    data: formData,
+                    success: function (response) {
+                    $(".preloader-overlay").hide();
+                        $('#successModal').modal('show');
+                        $("#contactForm")[0].reset();
+                        grecaptcha.reset()
+                    },
+                    error: function (error) {
+                    $(".preloader-overlay").hide();
+                        $('#errorModal').modal('show');
+                        grecaptcha.reset()
+                    }
+                });
             });
         });
-    });
-  </script>
+    </script>
 
   <!--Preloader-->
   <script>

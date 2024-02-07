@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'core.apps.CoreConfig',
+    'django_recaptcha',
 ]
+
+RECAPTCHA_PUBLIC_KEY = '6Ld012MpAAAAAOA3ysg3Ue3faEtHtRsD1Sy_cJ8J'
+RECAPTCHA_PRIVATE_KEY = '6Ld012MpAAAAABo4MxaqcKalb_PGVO4QI1YRZBAP'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -72,13 +76,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "Leadz_Reup.wsgi.application"
 
 # SMTP Configuration.
-DEFAULT_FROM_EMAIL = 'lynkslocal@gmail.com'
-SERVER_EMAIL = 'lynkslocal@gmail.com'
+DEFAULT_FROM_EMAIL = 'amack6666a@gmail.com'
+SERVER_EMAIL = 'amack6666a@gmail.com'
 # EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_PORT = 587
-EMAIL_HOST_USER = 'lynkslocal@gmail.com'
-EMAIL_HOST_PASSWORD = 'sppqbjbiiocgdwmw'
+EMAIL_HOST_USER = 'amack6666a@gmail.com'
+EMAIL_HOST_PASSWORD = 'rjpisjplzfyvurqk'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
@@ -98,9 +102,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "railway",
         "USER": "postgres",
-        "PASSWORD": "654BE4*DC3DDf-fbBefaDeE325agE46a",
+        "PASSWORD": "5A1aE165C-4De5Dbcg6C1-A22ge54cG6",
         "HOST": "roundhouse.proxy.rlwy.net",
-        "PORT": "28230"
+        "PORT": "32292"
     }
 }
 
