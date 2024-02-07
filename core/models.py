@@ -13,6 +13,9 @@ class Leadz_Reup(models.Model):
     email = models.CharField(max_length=10000, null=True, blank=True)
     phone_number = models.CharField(max_length=10000, null=True, blank=True)
 
+    def __str__(self):
+        return f"Leadz Reup Profile"
+
 
 class Contact_Form_Submission(models.Model):
     name = models.CharField(max_length=10000)
